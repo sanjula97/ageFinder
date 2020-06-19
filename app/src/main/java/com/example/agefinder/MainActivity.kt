@@ -19,8 +19,15 @@ class MainActivity : AppCompatActivity() {
     fun findAgeEvent(view:View){
         //Fires when button was clicked
         val yearOfBirth:Int = age.text.toString().toInt()
+
+            if(yearOfBirth == 0){
+                displayAge.text = "Invalid input"
+                return
+            }
+
         val currentYear = Calendar.getInstance().get(Calendar.YEAR)
         val myAge = currentYear - yearOfBirth
+        val avg = currentYear/ yearOfBirth
 
         displayAge.text = "Your age is ${myAge}"
 
